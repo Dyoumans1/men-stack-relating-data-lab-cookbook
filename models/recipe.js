@@ -3,19 +3,19 @@ const mongoose = require('mongoose');
 const recipeSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: true
+        required: true,
     },
     instructions: {
-        type: String
+        type: String,
     },
     owner: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
-        required: true
+        required: true, //note
     },
     ingredients: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Ingredient'
+        ref: 'Ingredient',
     }]
 });
 
