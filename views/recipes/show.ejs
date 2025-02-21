@@ -12,16 +12,21 @@
     <p>Instructions: <%= recipe.instructions %></p>
     
     <% if (recipe.ingredients && recipe.ingredients.length > 0) { %>
-        <h2>Ingredients:</h2>
+        <p>Ingredients:</p>
         <% recipe.ingredients.forEach(ingredient => { %>
             <p><%= ingredient.name %></p>
         <% }) %>
     <% } %>
 
-    <a href="/recipes/<%= recipe._id %>/edit">Edit Recipe</a>
+    <form action="/recipes/<%= recipe._id %>/edit" method="GET">
+        <button type="submit">Edit Recipe</button>
+    </form>
 
     <form action="/recipes/<%= recipe._id %>?_method=DELETE" method="POST">
         <button type="submit">Delete Recipe</button>
     </form>
+
+    <a href="/recipes">Back to All Recipes</a>
+    
 </body>
 </html>
